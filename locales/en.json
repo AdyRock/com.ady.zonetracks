@@ -103,7 +103,7 @@
 			},
 			"http": {
 				"title": "Setting up HTTP mode",
-				"body": "1. Here in the app settings, select **HTTP** and click **Save changes**. No broker is needed for this mode.\n\n2. In Homey, pair a \"User\" device for each family member (Devices > Add device > ZoneTracks > User).\n\n3. After creating the device, note the personalized HTTP endpoint URL shown (also available afterwards on that device's Advanced Settings page).\n\n4. On each phone, install OwnTracks, set the connection mode to HTTP, and paste that person's endpoint URL as the target.\n\n5. Tap the report button in OwnTracks to test - the matching Homey device's capabilities should update within a few seconds."
+				"body": "1. Here in the app settings, select **HTTP** and click **Save changes**. No broker is needed for this mode.\n\n2. In Homey, pair a \"User\" device for each family member (Devices > Add device > ZoneTracks > User).\n\n3. After creating the device, note the personalized HTTP endpoint URL shown (also available afterwards on that device's Advanced Settings page).\n\n4. On each phone, install OwnTracks, set the connection mode to HTTP, and paste that person's endpoint URL as the target. Leave the HTTP username and password empty; Homey rejects requests carrying Basic authentication with a 401 error.\n\n5. Tap the report button in OwnTracks to test - the matching Homey device's capabilities should update within a few seconds."
 			}
 		},
 		"mqtt": {

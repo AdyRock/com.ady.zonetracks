@@ -495,25 +495,28 @@ module.exports = class UserDevice extends Homey.Device
 	 */
 	async onSettings({ newSettings, changedKeys })
 	{
-		if (!changedKeys.includes('userId'))
+		if (changedKeys.includes('userId'))
 		{
-			return;
+			const newUserId = (newSettings.userId || '').trim();
+			if (!newUserId)
+			{
+				throw new Error('User ID cannot be empty');
+			}
+
+			const conflict = this.homey.drivers.getDriver('user').getDevices()
+				.some((candidate) => candidate.getData().id !== this.getData().id && candidate.getUserId() === newUserId);
+			if (conflict)
+			{
+				throw new Error(`User ID "${newUserId}" is already in use by another user`);
+			}
 		}
 
-		const newUserId = (newSettings.userId || '').trim();
-		if (!newUserId)
+		if (changedKeys.includes('userId') || changedKeys.includes('httpEndpoint'))
 		{
-			throw new Error('User ID cannot be empty');
+			// httpEndpoint is a copy-friendly text field but must stay derived/read-only, so any
+			// direct edit to it is overwritten right back to the computed value.
+			setImmediate(() => this._refreshHttpEndpoint().catch(this.error));
 		}
-
-		const conflict = this.homey.drivers.getDriver('user').getDevices()
-			.some((candidate) => candidate.getData().id !== this.getData().id && candidate.getUserId() === newUserId);
-		if (conflict)
-		{
-			throw new Error(`User ID "${newUserId}" is already in use by another user`);
-		}
-
-		setImmediate(() => this._refreshHttpEndpoint().catch(this.error));
 	}
 
 	/**

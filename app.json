@@ -786,7 +786,7 @@
         },
         {
           "id": "httpEndpoint",
-          "type": "label",
+          "type": "text",
           "label": {
             "en": "HTTP endpoint URL",
             "no": "HTTP-endepunkt-URL",

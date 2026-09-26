@@ -165,16 +165,29 @@
 		"ko": "사소한 버그를 수정하고 성능을 향상시켰습니다."
 	},
 	"1.1.3": {
-		"en": "Improved map tile caching mechanism. Fixed save settings issue. Changed URL settings from label to text so it can be copied.",
-		"nl": "Verbeterd cachemechanisme voor kaarttegels. Probleem met het opslaan van instellingen opgelost. URL-instellingen gewijzigd van label naar tekst zodat ze kunnen worden gekopieerd.",
-		"fr": "Amélioration du mécanisme de mise en cache des tuiles de la carte. Problème de sauvegarde des paramètres corrigé. Les paramètres URL ont été modifiés de l'étiquette au texte afin qu'ils puissent être copiés.",
-		"de": "Verbesserter Cache-Mechanismus für Kartenkacheln. Problem beim Speichern der Einstellungen behoben. URL-Einstellungen von Label auf Text geändert, damit sie kopiert werden können.",
-		"es": "Mejora del mecanismo de caché de mosaicos de mapas. Se solucionó el problema de guardar la configuración. Configuración de URL cambiada de etiqueta a texto para que se pueda copiar.",
-		"it": "Miglioramento del meccanismo di caching delle tessere della mappa. Risolto il problema del salvataggio delle impostazioni. Impostazioni URL modificate da etichetta a testo in modo che possano essere copiate.",
-		"pt": "Melhoria do mecanismo de cache de blocos de mapa. Corrigido problema ao salvar as configurações. Configurações de URL alteradas de rótulo para texto para que possam ser copiadas.",
-		"ru": "Улучшен механизм кэширования картографических плиток. Исправлена проблема с сохранением настроек. Настройки URL изменены с метки на текст, чтобы их можно было скопировать.",
-		"zh": "改进了地图瓦片缓存机制。修复了保存设置的问题。将 URL 设置从标签更改为文本，以便可以复制。",
-		"ja": "地図タイルのキャッシュ機構を改善しました。設定の保存に関する問題を修正しました。URL 設定をラベルからテキストに変更し、コピーできるようにしました。",
-		"ko": "지도 타일 캐싱 메커니즘 개선. 설정 저장 문제를 수정했습니다. URL 설정을 라벨에서 텍스트로 변경하여 복사할 수 있도록 했습니다."
+		"en": "Improved map tile caching mechanism. Fixed save settings issue.",
+		"nl": "Verbeterd cachemechanisme voor kaarttegels. Probleem met het opslaan van instellingen opgelost.",
+		"fr": "Amélioration du mécanisme de mise en cache des tuiles de la carte. Problème de sauvegarde des paramètres corrigé.",
+		"de": "Verbesserter Cache-Mechanismus für Kartenkacheln. Problem beim Speichern der Einstellungen behoben.",
+		"es": "Mejora del mecanismo de caché de mosaicos de mapas. Se solucionó el problema de guardar la configuración.",
+		"it": "Miglioramento del meccanismo di caching delle tessere della mappa. Risolto il problema del salvataggio delle impostazioni.",
+		"pt": "Melhoria do mecanismo de cache de blocos de mapa. Corrigido problema ao salvar as configurações.",
+		"ru": "Улучшен механизм кэширования картографических плиток. Исправлена проблема с сохранением настроек.",
+		"zh": "改进了地图瓦片缓存机制。修复了保存设置的问题。",
+		"ja": "地図タイルのキャッシュ機構を改善しました。設定の保存に関する問題を修正しました。",
+		"ko": "지도 타일 캐싱 메커니즘 개선. 설정 저장 문제를 수정했습니다."
+	},
+	"1.1.4": {
+		"en": " Changed URL settings from label to text so it can be copied.",
+		"nl": "URL-instellingen gewijzigd van label naar tekst zodat ze kunnen worden gekopieerd.",
+		"fr": "Les paramètres URL ont été modifiés de l'étiquette au texte afin qu'ils puissent être copiés.",
+		"de": "URL-Einstellungen von Label auf Text geändert, damit sie kopiert werden können.",
+		"es": "Configuración de URL cambiada de etiqueta a texto para que se pueda copiar.",
+		"it": "Impostazioni URL modificate da etichetta a testo in modo che possano essere copiate.",
+		"pt": "Configurações de URL alteradas de rótulo para texto para que possam ser copiadas.",
+		"ru": "Настройки URL изменены с метки на текст, чтобы их можно было скопировать.",
+		"zh": "将 URL 设置从标签更改为文本，以便可以复制。",
+		"ja": "URL 設定をラベルからテキストに変更し、コピーできるようにしました。",
+		"ko": "URL 설정을 라벨에서 텍스트로 변경하여 복사할 수 있도록 했습니다."
 	}
 }

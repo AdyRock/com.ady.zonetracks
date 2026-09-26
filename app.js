@@ -68,6 +68,7 @@ module.exports = class MyApp extends Homey.App
 		this.connector = null;
 		this.reconnectPromise = null;
 		this.reconnectRequested = false;
+		this.reconnectTimer = null;
 		this.personEnteredZoneCard = this.homey.flow.getTriggerCard('person_entered_zone');
 		this.personLeftZoneCard = this.homey.flow.getTriggerCard('person_left_zone');
 		this.lastLocations = new Map();
@@ -111,7 +112,12 @@ module.exports = class MyApp extends Homey.App
 		{
 			if (SETTINGS_KEYS.includes(key))
 			{
-				this._reconnect().catch((err) => this._logError('Failed to reconnect OwnTracks connector', err));
+				if (this.reconnectTimer) clearTimeout(this.reconnectTimer);
+				this.reconnectTimer = this.homey.setTimeout(() =>
+				{
+					this.reconnectTimer = null;
+					this._reconnect().catch((err) => this._logError('Failed to reconnect OwnTracks connector', err));
+				}, 100);
 			}
 			if (key === 'speedUnit')
 			{
@@ -131,6 +137,7 @@ module.exports = class MyApp extends Homey.App
 
 	async onUninit()
 	{
+		if (this.reconnectTimer) clearTimeout(this.reconnectTimer);
 		if (this.logPersistTimer)
 		{
 			clearTimeout(this.logPersistTimer);

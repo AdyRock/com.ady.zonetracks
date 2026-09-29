@@ -2753,7 +2753,7 @@ function onHomeyReady(Homey)
 		});
 	});
 
-	saveButton.addEventListener('click', () =>
+	saveButton.addEventListener('click', async () =>
 	{
 		const connectionMethod = methodMqtt.checked ? 'mqtt' : 'http';
 		const caCert = mqttCaCert.value.trim();
@@ -2763,18 +2763,28 @@ function onHomeyReady(Homey)
 			return Homey.alert(Homey.__('settings.mqtt.caCertInvalid'));
 		}
 
-		Homey.set('connectionMethod', connectionMethod, (err) => { if (err) return Homey.alert(err); });
-		Homey.set('mqttBrokerUrl', mqttBrokerUrl.value, (err) => { if (err) return Homey.alert(err); });
-		Homey.set('mqttUseTls', mqttUseTls.checked, (err) => { if (err) return Homey.alert(err); });
-		Homey.set('mqttCaCert', caCert, (err) => { if (err) return Homey.alert(err); });
-		Homey.set('mqttAllowSelfSigned', mqttAllowSelfSigned.checked, (err) => { if (err) return Homey.alert(err); });
-		Homey.set('mqttPort', mqttPort.value ? Number(mqttPort.value) : null, (err) => { if (err) return Homey.alert(err); });
-		Homey.set('mqttUsername', mqttUsername.value, (err) => { if (err) return Homey.alert(err); });
-		Homey.set('mqttPassword', mqttPassword.value, (err) =>
+		const settings = [
+			...(connectionMethod === 'http' ? [['connectionMethod', connectionMethod]] : []),
+			['mqttBrokerUrl', mqttBrokerUrl.value],
+			['mqttUseTls', mqttUseTls.checked],
+			['mqttCaCert', caCert],
+			['mqttAllowSelfSigned', mqttAllowSelfSigned.checked],
+			['mqttPort', mqttPort.value ? Number(mqttPort.value) : null],
+			['mqttUsername', mqttUsername.value],
+			['mqttPassword', mqttPassword.value],
+			...(connectionMethod === 'mqtt' ? [['connectionMethod', connectionMethod]] : []),
+		];
+		try
 		{
-			if (err) return Homey.alert(err);
+			for (const [key, value] of settings)
+			{
+				await new Promise((resolve, reject) => Homey.set(key, value, (err) => err ? reject(err) : resolve()));
+			}
 			Homey.alert(Homey.__('settings.saved'));
-		});
+		} catch (err)
+		{
+			Homey.alert(err);
+		}
 	});
 
 	Homey.ready();

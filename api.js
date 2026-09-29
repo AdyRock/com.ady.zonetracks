@@ -10,12 +10,19 @@ module.exports = {
 	 */
 	async events({ homey, body, params })
 	{
-		await homey.app.handleOwnTracksHttp(body, { user: params.userId });
-		// OwnTracks expects a JSON array in the response; returning every known user's
-		// card (name/avatar) and last location lets all family members' apps show each
-		// other on the map. An object like `{ ok: true }` fails to parse on the device
-		// with "failed to parse JSON".
-		return homey.app.buildFriendsResponse(params.userId);
+		try
+		{
+			await homey.app.handleOwnTracksHttp(body, { user: params.userId });
+			// OwnTracks expects a JSON array in the response; returning every known user's
+			// card (name/avatar) and last location lets all family members' apps show each
+			// other on the map. An object like `{ ok: true }` fails to parse on the device
+			// with "failed to parse JSON".
+			return await homey.app.buildFriendsResponse(params.userId);
+		} catch (err)
+		{
+			homey.app._logError('OwnTracks HTTP request failed', err);
+			throw err;
+		}
 	},
 
 	/**

@@ -189,5 +189,18 @@
 		"zh": "将 URL 设置从标签更改为文本，以便可以复制。",
 		"ja": "URL 設定をラベルからテキストに変更し、コピーできるようにしました。",
 		"ko": "URL 설정을 라벨에서 텍스트로 변경하여 복사할 수 있도록 했습니다."
+	},
+	"1.1.5": {
+		"en": "Improved settings saving to prevent errors from unused options. Better logging of HTTP errors.",
+		"nl": "Verbeterd opslaan van instellingen om fouten door ongebruikte opties te voorkomen. Betere logging van HTTP-fouten.",
+		"fr": "Amélioration de la sauvegarde des paramètres pour éviter les erreurs liées aux options inutilisées. Meilleure journalisation des erreurs HTTP.",
+		"de": "Verbesserte Speicherung der Einstellungen, um Fehler durch ungenutzte Optionen zu vermeiden. Bessere Protokollierung von HTTP-Fehlern.",
+		"es": "Mejora en el guardado de configuraciones para evitar errores por opciones no utilizadas. Mejor registro de errores HTTP.",
+		"it": "Migliorato il salvataggio delle impostazioni per prevenire errori dovuti a opzioni non utilizzate. Migliore registrazione degli errori HTTP.",
+		"pt": "Melhoria na gravação das configurações para evitar erros de opções não utilizadas. Melhor registro de erros HTTP.",
+		"ru": "Улучшено сохранение настроек для предотвращения ошибок из-за неиспользуемых опций. Лучшая регистрация ошибок HTTP.",
+		"zh": "改进了设置保存以防止未使用选项导致的错误。更好的 HTTP 错误日志记录。",
+		"ja": "未使用のオプションによるエラーを防ぐために設定の保存を改善しました。HTTP エラーのログを改善しました。",
+		"ko": "사용되지 않는 옵션으로 인한 오류를 방지하기 위해 설정 저장을 개선했습니다. HTTP 오류 로깅을 개선했습니다."
 	}
 }
